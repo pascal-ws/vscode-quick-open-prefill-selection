@@ -1,7 +1,7 @@
 {
-    "name": "quick-open-prefill-selection",
-    "displayName": "quick-open-prefill-selection",
-    "description": "Prefills quick open with selected text",
+    "name": "pas-quick-open-prefill-selection",
+    "displayName": "pas-quick-open-prefill-selection",
+    "description": "FORK. Prefills quick open with selected text",
     "version": "0.2.2",
     "publisher": "colch",
     "icon": "images/icon.png",
@@ -30,7 +30,7 @@
     },
     "scripts": {
         "vscode:prepublish": "npm run package",
-        "compile": "npm run check-types && npm run lint && node esbuild.js",
+        "comppile": "npm run check-types && npm run lint && node esbuild.js",
         "watch": "npm-run-all -p watch:*",
         "watch:esbuild": "node esbuild.js --watch",
         "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",

@@ -1,25 +1,38 @@
-# quick-open-prefill-selection
+# Fork for customizations
+- Background: I use [CTRL] + [Q] to execute this with a prefix '@' to search for definitions in this file quickly. Therefore, I've added a prefix in the source file. Note that when enabling the extension, omit the "editorHasSelection" to start with the prefix directly.
 
-VS Code extension which adds command that will open *Quick Open* window prefilled with selected text
+See Readme here: https://github.com/ColCh/vscode-quick-open-prefill-selection
 
-## Demo video
+# Notes for building/packing for VSCode (VSIX)
 
-(works in [vscode web](https://code.visualstudio.com/docs/editor/vscode-web) too)
-
-[![Imgur](https://i.imgur.com/sMvVy4N.png)](https://imgur.com/9Mvhp15)
-
-## Extension Settings
-
-Open your [keybindings.json](https://code.visualstudio.com/docs/getstarted/keybindings#_advanced-customization) and add this keybinding:
-
-```json
-{
-    "key": "cmd+p",
-    "command": "extension.quickOpen.withPrefill",
-    "when": "editorTextFocus && editorHasSelection && !editorHasMultipleSelections"
-}
+```pwsh
+git clone https://github.com/pascal-ws/vscode-quick-open-prefill-selection
+cd vscode-quick-open-prefill-selection
+npm install
+npm run package
+mv "dist" "out"
+vsce pack
+# will ask for a license, accept y
 ```
 
-## Release Notes
+https://code.visualstudio.com/api/working-with-extensions/bundling-extension
 
-See [CHANGELOG](CHANGELOG.md) for details.
+https://code.visualstudio.com/api/working-with-extensions/publishing-extension
+
+
+# Notes for installation: 
+- In VSCode, go to extensions > ... > install from VSIX > Use your VSIX 
+- Restart extensions (popup)
+- Open keybindings file CTRL+K CTRL+S
+- Change to JSON view
+
+```json
+[
+    {
+        "key": "ctrl+shift+q",
+        "command": "extension.quickOpen.withPrefill",
+        "when": "editorTextFocus"
+    }
+]
+```
+

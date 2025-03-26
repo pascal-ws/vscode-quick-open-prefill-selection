@@ -11,8 +11,11 @@ export function activate(context: vscode.ExtensionContext) {
 
         const selection = editor.selection;
         const selectedText = editor.document.getText(selection);
+		const prefix = '@';
+		
+		const prefillText = (selectedText == null || selectedText == '') ? prefix : prefix + selectedText;
 
-        await vscode.commands.executeCommand('workbench.action.quickOpen', selectedText);
+        await vscode.commands.executeCommand('workbench.action.quickOpen', prefillText);
     });
 
     context.subscriptions.push(disposable);
